@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//ポスト一覧
+Route::get('posts','User\PostController@list')->name('post.list');
+
+//ポストをするページをこの下にViewsはuser/posts/create.blade.phpを指定する。
+
+
+//実際にpostしてDBにデータを入れる処理を書く
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
