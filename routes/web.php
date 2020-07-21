@@ -22,7 +22,7 @@ Route::get('posts','User\PostController@list')->name('post.list');
 
 
 //実際にpostしてDBにデータを入れる処理を書く
-
+Route::post('posts','User\PostController@store')->name('post.store');
 
 
 Auth::routes();
