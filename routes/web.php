@@ -19,10 +19,10 @@ Route::get('/', function () {
 Route::get('posts','User\PostController@list')->name('post.list');
 
 //ポストをするページをこの下にViewsはuser/posts/create.blade.phpを指定する。
-
+Route::get('create','User\PostController@create')->name('post.create');
 
 //実際にpostしてDBにデータを入れる処理を書く
-
+Route::post('user/store','User\PostController@store')->name('user.store');
 
 
 Auth::routes();

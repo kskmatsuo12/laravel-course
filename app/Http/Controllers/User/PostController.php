@@ -14,4 +14,19 @@ class PostController extends Controller
         $posts = Post::all();
         return view('user/posts/list',[ 'posts' => $posts ]);
     } 
+
+    public function create()
+    {
+        return view('user/posts/create');
+    }
+
+    public function store(Request $request)
+    {
+        //新しいもの作るnew
+        $post = new Post;
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->save();
+        return view('user/posts/create');
+    }
 }
