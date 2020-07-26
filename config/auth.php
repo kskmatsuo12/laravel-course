@@ -46,6 +46,18 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        //追記
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        
+        //追記
+        'shop' => [
+            'driver' => 'session',
+            'provider' => 'shops',
+        ],
     ],
 
     /*
@@ -69,6 +81,12 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        //追記
+        'shops' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Shop::class,
         ],
 
         // 'users' => [
@@ -95,6 +113,13 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        //パスワードリセット用の場所。追記して損なし。
+        'shops' => [
+            'provider' => 'shops',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

@@ -16,6 +16,15 @@
 
                     You are logged in!
                 </div>
+                @auth('shop')
+                aa
+                @endauth
+             
+                    {{ Auth::user() }}
+                    ショップでログイン！
+         
+                    ユーザーで
+           
             </div>
         </div>
     </div>

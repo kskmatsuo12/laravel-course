@@ -5,13 +5,18 @@
 @endsection
 
 @section('css')
-
+<style>
+span {
+    color: red;
+}
+</style>
 @endsection
 
 
 @section('content')
 @foreach($posts as $post)
- <div>{{$post->title}}</div>
+ <div>{{$post->title}}<span>{{$post->user->name}}</span></div>
+
 @endforeach
 @endsection
 

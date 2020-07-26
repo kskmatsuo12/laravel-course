@@ -9,9 +9,27 @@ class UsersTableSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 1,
+                'name' => 'ユーザー１',
                 'email' => 'user1@test.com',
-                'password' => 'password',
+                'password' => Hash::make('password'),
+                "role" => 1,
+                "status" => 1,
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                'name' => 'ユーザー２',
+                'email' => 'user2@test.com',
+                'password' => Hash::make('password'),
+                "role" => 1,
+                "status" => 1,
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                'name' => 'ユーザー３',
+                'email' => 'user3@test.com',
+                'password' => Hash::make('password'),
                 "role" => 1,
                 "status" => 1,
                 "created_at" => now(),
