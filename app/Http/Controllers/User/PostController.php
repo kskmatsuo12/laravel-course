@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
+use Auth;
 
 class PostController extends Controller
 {
@@ -13,8 +14,8 @@ class PostController extends Controller
     {
         $posts = Post::join('users as u','u.id','=','posts.user_id')
                 ->where('user_id',Auth::id())
-                ->first();
-                
+                ->get();
+
         // $posts = Post::all();
         return view('user/posts/list',[ 'posts' => $posts ]);
     } 
