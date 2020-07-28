@@ -14,7 +14,14 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @can('create-user')
+                    Home
+                    @elsecan
+                    aaaaaaa
+                    @endcan
+
+
+        
                 </div>
             </div>
         </div>

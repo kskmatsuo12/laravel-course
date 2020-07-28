@@ -11,7 +11,11 @@ class PostController extends Controller
 {
     public function list()
     {
-        $posts = Post::all();
+        $posts = Post::join('users as u','u.id','=','posts.user_id')
+                ->where('user_id',Auth::id())
+                ->first();
+                
+        // $posts = Post::all();
         return view('user/posts/list',[ 'posts' => $posts ]);
     } 
 

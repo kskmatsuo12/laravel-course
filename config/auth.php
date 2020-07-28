@@ -35,6 +35,7 @@ return [
     |
     */
 
+    //ここで名前をつけてる
     'guards' => [
         'web' => [
             'driver' => 'session',
@@ -45,6 +46,12 @@ return [
             'driver' => 'token',
             'provider' => 'users',
             'hash' => false,
+        ],
+        
+        //追記
+        'shop' => [
+            'driver' => 'session',
+            'provider' => 'shops',
         ],
     ],
 
@@ -75,6 +82,12 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+                //追記
+        'shops' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Shop::class,
+        ],
     ],
 
     /*
@@ -95,6 +108,14 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        //パスワードリセット用の場所。追記して損なし。
+        'shops' => [
+            'provider' => 'shops',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

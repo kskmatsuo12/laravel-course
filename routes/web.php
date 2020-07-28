@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //ポスト一覧
 Route::get('posts','User\PostController@list')->name('post.list');
@@ -28,3 +28,42 @@ Route::post('user/store','User\PostController@store')->name('user.store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+//Shops用会員登録ページ
+Route::get('/shop/register','Shop\Auth\RegisterController@showRegistrationForm')->name('shop.register.form');
+//Shops用会員登録ボタン
+Route::post('/shop/register','Shop\Auth\RegisterController@register')->name('shop.register');
+//Shops用ログインページ
+Route::get('/shop/login','Shop\Auth\LoginController@showLoginForm')->name('shop.login.form');
+//Shops用ログインボタンクリック時
+Route::post('/shop/login','Shop\Auth\LoginController@login')->name('shop.login');
+//Shops用ログアウトボタンクリック時
+Route::post('/shop/logout','Shop\Auth\LoginController@logout')->name('shop.logout');
+
+//Shops用ログイン後のページ
+Route::get('/shop/home','Shop\HomeController@index');
+
+
+// web.phpで認可によって表示させる、させないを書ける
+Route::group(['middleware' => ['auth:shop', 'can:normal-user']], function () {
+    Route::get('/shop/home','Shop\HomeController@index');   
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/{any}', function () {
+    return view('user/main');
+})->where('any','.*');
