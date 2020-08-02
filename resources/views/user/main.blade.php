@@ -1,20 +1,20 @@
-  <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-        <!-- CSRFの必要なメタタグ -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+@extends('layouts.app')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-
+@section('content')
 <body>
+    <ul>
+        <li><a href="{{ route('users') }}">レッスン３ユーザー一覧</a></li>
+        <li><a href="{{ route('image') }}">レッスン３画像投稿</a></li>
+    </ul>
+
+{{--Vueは下記を読まないとダメ
     <div id="app">
-    AAAAAAAAAA
         <app-component/>
     </div>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+--}}
 </body>
+@endsection
+
+@section('javascript')
+<script src="{{ asset('js/app.js') }}" defer></script>
+@endsection

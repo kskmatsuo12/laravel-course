@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Auth;
 
+use Validator;
+
 class PostController extends Controller
 {
     public function list()
@@ -27,6 +29,15 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+    $validator = Validator::make($request->all(), [
+       'title' => "required|max:5",
+       'content' => "nullable|integer"
+       ]);
+       if ($validator->fails()) {
+            return redirect()->back()
+               ->withInput()
+               ->withErrors($validator);
+       }
         //新しいもの作るnew
         $post = new Post;
         $post->title = $request->title;

@@ -2,7 +2,16 @@
 <h2>Postコントローラーで、Postsに保存されるような処理をやってみましょう</h2>
 <h2>５分間くらい悩んでみましょう。過去の資料を見直したり、なんでもありです。</h2>
 
-
+@if($errors->any())
+<div>
+    <ul>
+    @foreach($errors->all() as $error)
+        <li>{{$error}}</li>
+    @endforeach
+    </ul>
+</div>
+@endif
+{{ __('translate.contents')}}
 <form method="POST" action="{{ route('user.store') }}">
     @csrf
     <div>タイトル：<input name="title"></div>
