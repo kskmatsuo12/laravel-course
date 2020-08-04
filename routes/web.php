@@ -56,7 +56,8 @@ Route::get('/lesson3/users','Lesson3Controller@users')->name('users');
 Route::get('/lesson3/user/{id}','Lesson3Controller@userDetail')->name('user.detail');
 Route::post('/lesson3/like/post','Lesson3Controller@like')->name('like');
 
-
+Route::get('/lesson3/image','Lesson3Controller@image')->name('image');
+Route::post('/lesson3/image/post','Lesson3Controller@imagePost')->name('image.post');
 
 
 
