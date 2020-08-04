@@ -1,14 +1,6 @@
 <template>
   <div>
-    <div>Tst1</div>
-    <div>Tst1</div>
-    <div>Tst1</div>
-    <div>Tst1</div>
-    <div>Tst1</div>
-    <div>Tst1</div>
-    <div>Tst1</div>
-    <div>Tst1</div>
-    <div>Tst1</div>
+    <p v-for="(user,key) in users" :key="key">{{user.name}}</p>
   </div>
 </template>
 
@@ -24,7 +16,9 @@ export default {
   },
   methods: {
     getUser: function() {
-      axios.get("/test/get_user").then(res => console.log(res));
+      axios.get("/test/get_user").then(res => {
+        this.users = res.data.users;
+      });
     }
   }
 };
