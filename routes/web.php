@@ -60,8 +60,6 @@ Route::get('/lesson3/image','Lesson3Controller@image')->name('image');
 Route::post('/lesson3/image/post','Lesson3Controller@imagePost')->name('image.post');
 
 
+Route::get('/test/get_user','Lesson3Controller@getUsers');
 
-
-Route::get('/{any}', function () {
-    return view('user/main');
-})->where('any','.*');
+Route::get('/{any}', 'Lesson3Controller@home')->where('any','.*');

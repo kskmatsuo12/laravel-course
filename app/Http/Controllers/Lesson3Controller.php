@@ -16,7 +16,16 @@ use App\Models\PostLike;
 
 class Lesson3Controller extends Controller
 {
+    public function home()
+    {
+        return view('user/main');
+    }
 
+    public function getUsers()
+    {
+        $users = User::all();
+        return response()->json(['users'=>$users],200);
+    }
 
     public function users()
     {
@@ -80,10 +89,7 @@ class Lesson3Controller extends Controller
         $img->blur(80);
         $save_path = storage_path('app/test/test.jpg');
         $img->save($save_path);     
-        dd($img);
-
-
-
+        
         $disk = Storage::disk('local');
         // [Tips]設定をすれば下記に書き換えるだけでS3に保存できる
         // $disk = Storage::disk('s3');
