@@ -36,4 +36,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    //ユーザー詳細とのリレーション
+    public function detail()
+    {
+        return $this->hasOne('App\Models\UserDetail');
+    }
+
+    //多対多
+    public function teams()
+    {
+        return $this->belongsToMany('App\Models\Team');
+    }
+
+    //１対多
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Post');
+    }
+
+
 }

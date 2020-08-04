@@ -11,46 +11,74 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-         $data = [
+          $data = [
             [
                 'user_id' => 1,
                 'title' => 'タイトル１',
-                'content' => 'コンテンツ１コンテンツ１コンテンツ１',
+                'content' => 'コンテンツ１',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
                 'user_id' => 1,
                 'title' => 'タイトル２',
-                'content' => 'コンテンツ2コンテンツ2コンテンツ2',
+                'content' => 'コンテンツ2',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
                 'user_id' => 1,
                 'title' => 'タイトル3',
-                'content' => 'コンテンツ3コンテンツ3コンテンツ3',
+                'content' => 'コンテンツ3',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
                 'user_id' => 1,
                 'title' => 'タイトル4',
-                'content' => 'コンテンツ4コンテンツ4コンテンツ4',
+                'content' => 'コンテンツ4',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
                 'user_id' => 2,
-                'title' => 'タイトルユーザー２のやつ',
-                'content' => 'コンテンツ５コンテンツ５コンテンツ５',
+                'title' => 'タイトル5',
+                'content' => 'コンテンツ5',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
                 'user_id' => 2,
                 'title' => 'タイトル6',
-                'content' => 'コンテンツ6コンテンツ6コンテンツ6',
+                'content' => 'コンテンツ6',
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                'user_id' => 3,
+                'title' => 'タイトル7',
+                'content' => 'コンテンツ7',
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'タイトル8',
+                'content' => 'コンテンツ8',
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'タイトル9',
+                'content' => 'コンテンツ9',
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                'user_id' => 5,
+                'title' => 'タイトル10',
+                'content' => 'コンテンツ10',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
