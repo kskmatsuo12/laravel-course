@@ -25,11 +25,15 @@ Route::get('create','User\PostController@create')->name('post.create');
 Route::post('user/store','User\PostController@store')->name('user.store');
 
 
-Auth::routes();
+//Auth::routes();
+//ユーザー認証を作成した時に自動的に作成されるルートを下記のように変更
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+Route::group(['middleware' => ['auth','verified']], function () {
+//メール認証の人だけ見れるページはここに追記する
+});
 
 //Shops用会員登録ページ
 Route::get('/shop/register','Shop\Auth\RegisterController@showRegistrationForm')->name('shop.register.form');
@@ -63,3 +67,4 @@ Route::post('/lesson3/image/post','Lesson3Controller@imagePost')->name('image.po
 Route::get('/test/get_user','Lesson3Controller@getUsers');
 
 Route::get('/{any}', 'Lesson3Controller@home')->where('any','.*');
+

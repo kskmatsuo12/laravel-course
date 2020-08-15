@@ -7,25 +7,17 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    /**
-     * The Artisan commands provided by your application.
-     *
-     * @var array
-     */
+ 
     protected $commands = [
-        //
+        Commands\SendMail::class,
     ];
 
-    /**
-     * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
-     */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        //hourlyは１時間ごと
+        // $schedule->command('send:mail')->hourly();
+        //everiminutesは１分ごと
+        $schedule->command('send:mail')->everyMinute();
     }
 
     /**
