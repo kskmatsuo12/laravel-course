@@ -6,7 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+//作成したメール関数用のファイルを追記
+use App\Notifications\CustomVerify;
+
+// class User extends Authenticatable 
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -16,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','role'
     ];
 
     /**
@@ -56,5 +60,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Post');
     }
 
+    // public function sendEmailVerificationNotification()
+    // {
+    //     $this->notify(new VerifyEmail);
+    // }
+
+    public function sendCustomMail($user)
+    {
+        $this->notify(new CustomVerify($user));
+    }
 
 }

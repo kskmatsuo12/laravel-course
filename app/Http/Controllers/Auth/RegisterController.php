@@ -9,6 +9,13 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+//追加した関数にRequestがあるので追記
+use Illuminate\Http\Request;
+//作成したメール関数用のファイルを追記
+use App\Notifications\CustomVerify;
+//メール送信時に使うので追記
+use Notification;
+
 class RegisterController extends Controller
 {
     /*
@@ -68,6 +75,18 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);
+            'role' => 1
+            ]);
+
+        // return $user;
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        //コントローラーでsendを使う場合、第一引数にemailカラムを持つ人を用意する感じ。
+        // Notification::send($user, new CustomVerify());
+        if($user->role= 1){
+        $user->sendCustomMail($user);
+        }
     }
 }
