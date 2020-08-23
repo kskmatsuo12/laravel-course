@@ -27,6 +27,10 @@ Route::post('user/store','User\PostController@store')->name('user.store');
 // Auth::routes();
 Auth::routes(['verify' => true]);
 
+//使うプロバイダーをwhereで指定する。今回はTwitterだけ使う。
+Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider')->where('provider', 'facebook|twitter|google|github')->name('user.sns.login');
+Route::get('/login/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->where('provider', 'facebook|twitter|google|github');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth','verified']], function () {

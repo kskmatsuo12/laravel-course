@@ -9,10 +9,14 @@ use Illuminate\Notifications\Notifiable;
 //作成したメール関数用のファイルを追記
 use App\Notifications\CustomVerify;
 
+//API認証
+use Laravel\Passport\HasApiTokens;
+
 // class User extends Authenticatable 
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
+    use HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role'
+        'name', 'email', 'password','role','status','provider','provider_id'
     ];
 
     /**

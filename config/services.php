@@ -29,5 +29,24 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'passport'=>[
+        'login_endpoint' => env('PASSPORT_LOGIN_ENDPOINT'),
+        'client_id' => env('PASSPORT_CLIENT_ID'),
+        'client_secret' => env('PASSPORT_CLIENT_SECRET')
+    ],
 
+    //Socialite SNS認証
+    'twitter' => [
+        'client_id'     => env('TWITTER_API_KEY'),
+        'client_secret' => env('TWITTER_API_SECRET'),
+        'redirect'      => env('TWITTER_CALLBACKURL'),
+    ],
+
+    //Slack通知
+    'slack' => [
+        'username' => env('SLACK_USERNAME'),
+        'icon' => env('SLACK_ICON'),
+        'channel' => env('SLACK_CHANNEL'),
+        'url' => env('SLACK_URL'),
+    ]
 ];

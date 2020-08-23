@@ -43,9 +43,10 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            //変更
+            'driver' => 'passport',
             'provider' => 'users',
-            'hash' => false,
+            'hash' => true,
         ],
         
         //追記

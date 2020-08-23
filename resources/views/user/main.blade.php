@@ -13,7 +13,6 @@
 
 <body>
     <div id="app">
-    AAAAAAAAAA
         <app-component/>
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>

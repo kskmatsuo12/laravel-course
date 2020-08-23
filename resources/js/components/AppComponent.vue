@@ -1,6 +1,5 @@
 <template>
-    <div>
-        app読まれているか
-        <router-view></router-view>
-    </div>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
