@@ -69,6 +69,9 @@
                             </div>
                         </div>
                     </form>
+                        {!! NoCaptcha::renderJs() !!}
+    {!! NoCaptcha::display() !!}
+
                 </div>
             </div>
         </div>

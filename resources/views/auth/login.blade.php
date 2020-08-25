@@ -65,6 +65,7 @@
                             </div>
                         </div>
                     </form>
+                    <a href="{{route('user.sns.login',['provider'=>'twitter'])}}">Twitterログイン</a>
                 </div>
             </div>
         </div>
